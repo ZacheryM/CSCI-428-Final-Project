@@ -1,0 +1,22 @@
+@startuml SequenceDiagram
+
+User <- Driver : Request wordleLength
+User -> Driver : Input wordleLength
+Driver -> WordleBoard : Construct WordleBoard board object
+WordleBoard -> Parser : Request answer
+Parser <- Parser : Parse data.txt for wordList
+Parser <- Parser : Pick random word from wordList
+Parser -> WordleBoard : Return answer & wordList
+WordleBoard -> Driver : Initialize WordleBoard board object
+Driver <- Display : Clear the board
+Driver <- Display : Print the board 
+Driver -> User : Request Wordle guess
+User -> Driver : Input guess
+Driver -> WordleBoard : Check if geuss is in wordList
+WordleBoard -> WordleBoard : Check if geuss is answer
+WordleBoard -> Display : Parse geuss for correct letters
+Driver <- Display : Clear the board
+Driver <- Display : Print the updated board 
+Driver <-> User : Loop until gameOver or answer is found
+Driver -> Driver : Write game history to file
+@enduml

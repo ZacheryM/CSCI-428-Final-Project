@@ -1,0 +1,17 @@
+@startuml usecase
+left to right direction
+
+actor User as user
+
+
+rectangle Wordle {
+  usecase "Pick Difficulty" as useCase1
+  usecase "Guess Words" as useCase2
+  usecase "Restart game" as useCase3
+}
+
+user --> useCase1
+user --> useCase2
+user --> useCase3
+
+@enduml

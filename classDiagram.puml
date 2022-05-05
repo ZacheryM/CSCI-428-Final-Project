@@ -1,0 +1,42 @@
+@startuml ClassDiagram
+
+class Driver{
+    - debug
+    - data
+    - wordleLength
+
+    + main()
+    + recordGame()
+}
+
+class Display{
+    + printBoard()
+    + printAnswer()
+    + clear()
+}
+
+class WordleBoard{
+    - rows
+    - columns
+    - answer
+    - guesses
+
+    + getRows()
+    + getColumns()
+    + getGuess()
+    + getAnswer()
+    + countGuess()
+    + GameOver()
+    + didWin()
+    + mutateGuess()
+}
+
+ class Parser{
+    - wordList
+
+    + readWord()
+    + checkWord()
+}
+
+
+@enduml
